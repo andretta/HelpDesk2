@@ -87,6 +87,13 @@ public class ChamadosWS {
     public List<Chamados> getDepUsuarioPorId(@PathParam("id") Long id) {
         return (List<Chamados>) helpdeskRN.listarChamadosUsuarios(id);
     }
+    
+    @GET //BUSCA TODOS OS CHAMADOS POR STATUS
+    @Path("/Status/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Chamados> getChamadosFechados(@PathParam("id") Long id) {
+        return (List<Chamados>) helpdeskRN.listarChamadosPorStatus(id);
+    }
 
     @PUT //atualizar chamado
     @Path("/{id}")

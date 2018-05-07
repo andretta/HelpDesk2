@@ -6,6 +6,7 @@
 package ws;
 
 import entidade.Chamados;
+import entidade.Usuarios;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
@@ -78,6 +79,13 @@ public class ChamadosWS {
     @Produces(MediaType.APPLICATION_JSON)
     public Chamados getChamadosPorId(@PathParam("id") Long id) {
         return helpdeskRN.buscarChamadoPorId(id);
+    }
+    
+    @GET //BUSCA TODOS OS CHAMADOS CADASTRADOS PARA O USUARIO INFORMADO POR PARAMETRO
+    @Path("/Buscar/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Chamados> getDepUsuarioPorId(@PathParam("id") Long id) {
+        return (List<Chamados>) helpdeskRN.listarChamadosUsuarios(id);
     }
 
     @PUT //atualizar chamado

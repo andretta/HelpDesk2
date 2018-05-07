@@ -82,6 +82,17 @@ public class HelpDeskRN {
         return listaChamados;
     }
     
+        public List<Chamados> listarChamadosUsuarios(Long id) {
+        EntityManager manager = JPAUtil.createManager();
+        
+        Query query = manager.createQuery("select m from Chamados m where m.usuarios.id=:id");
+        query.setParameter("id",id);
+        List<Chamados> listaChamados = query.getResultList();
+        System.out.println(listaChamados.size());
+        manager.close();
+        return listaChamados;
+    }
+    
     //-------------------------------------------------------------------------------------
     
     //Usuarios

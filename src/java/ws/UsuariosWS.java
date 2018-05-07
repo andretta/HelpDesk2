@@ -74,8 +74,8 @@ public class UsuariosWS {
         return helpdeskRN.buscarUsuarioPorId(id);
     }
     
-    @GET //buscar Usuarios do departamento
-    @Path("Dep/{id}")
+    @GET //BUSCA TODOS OS USUARIOS CADASTRADOS NO DEPARTAMENTO INFORMADO POR PARAMETRO
+    @Path("/Dep/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Usuarios> getDepUsuarioPorId(@PathParam("id") Long id) {
         return (List<Usuarios>) helpdeskRN.listarDepUsuarios(id);
@@ -95,7 +95,7 @@ public class UsuariosWS {
     @DELETE
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Usuarios deletarusuariosDeletado(@PathParam("id") Long id){
+    public Usuarios deletarusUarios(@PathParam("id") Long id){
         Usuarios usuariosDeletado = helpdeskRN.deletarUsuario(id);
         return usuariosDeletado;
     }
